@@ -28,7 +28,7 @@ _start:
     mov rax, SYS_BIND ; sys_bind(socket_fd, sockaddr, sockaddr_size)
     mov edi, [socket_fd]
     mov rsi, sockaddr
-    mov rdx, sockaddr_in_size ; Size of sockaddr
+    mov rdx, 16 ; Size of sockaddr
     syscall
     
     cmp rax, 0 ; Check for error
@@ -39,6 +39,8 @@ _start:
     mov edi, [socket_fd]
     mov rsi, 128 ; Max clients
     syscall
+
+    ;TODO: Accept connection
 
 .exit:
     ; Close Socket
