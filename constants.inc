@@ -10,6 +10,21 @@ endstruc
 
 SYS_LISTEN equ 50
 
+start_msg: db "HTTP Server started at 127.0.0.1:8080", 10, 10
+start_len: equ $ - start_msg
+
+SYS_ACCEPT equ 43
+SYS_WRITE equ 1
+
+header:
+        db "HTTP/1.1 200 OK", 10
+        db "Content-Type: text/json", 10
+        db "Connection: close", 10
+        db 10
+header_len: equ $ - header
+
+SYS_READ equ 0
+
 SYS_CLOSE equ 3
 SYS_EXIT equ 60
 
