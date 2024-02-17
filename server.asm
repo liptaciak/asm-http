@@ -54,7 +54,7 @@ _start:
     syscall
 
 .handle:
-    ; Accept Connections
+    ; Accept Connection
     xor rsi, rsi
     xor rdx, rdx
 
